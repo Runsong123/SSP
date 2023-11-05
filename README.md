@@ -35,7 +35,7 @@ python generate_abc_adapative_add_outside_depth.py
 python generate_pcp_adaptive_add_outside_depth.py
 python generate_SRB_adaptive_add_outside_depth.py
 ```
-We also provide the processed data ([Here](https://runsong123.github.io/SSP/)). You can download it and then place it in ```./data/```. Note that, we use the [AdaFit](https://github.com/Runsong123/AdaFit) to calculate the unoriented normals to boost the performance on mentioned datasets in our paper. If you want to test your data, you could generate the normals using [AdaFit](https://github.com/Runsong123/AdaFit) or other methods (e.g., PCA). 
+We also provide the processed data ([Here](https://mycuhk-my.sharepoint.com/:f:/g/personal/1155183723_link_cuhk_edu_hk/ErPDv-RZh-lDuCz-BiBN-mwBec97tyjns7wtrfMZKnpckQ?e=vjmv1Z)). Note that, we use the [AdaFit](https://github.com/Runsong123/AdaFit) to calculate the unoriented normals to boost the performance on mentioned datasets in our paper. If you want to test your data, you could generate the normals using [AdaFit](https://github.com/Runsong123/AdaFit) or other methods (e.g., PCA). 
 
 ###  Start fitting for given point clouds input
 ```

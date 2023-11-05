@@ -13,7 +13,11 @@ Runsong Zhu¹, Di Kang², Ka-Hei Hui¹, Yue Qian², Shi Qiu¹, Zhen Dong³, Linc
 
 ¹The Chinese University of Hong Kong + ²Tencent AI Lab + ³Wuhan University.
 
-
+<p align="center">
+  <a href="">
+    <img src="./media/Pipline_order.png" alt="Logo" width="95%">
+  </a>
+</p>
 ## Set up
 ```
 pip install -r code/reconstruction/requirements.txt
@@ -23,7 +27,7 @@ pip install -r code/reconstruction/requirements.txt
 ## How to use the code
 
 
-### Data praparation (calculating the outside region). 
+### Data praparation (calculating the outside regions). 
 ```
 cd code/space_carving
 python generate_abc_adapative_add_outside_depth.py
@@ -32,7 +36,7 @@ python generate_SRB_adaptive_add_outside_depth.py
 ```
 We also provide the processed data ([Here](https://runsong123.github.io/SSP/)). You can download it and then place it in ```./data/```. Note that, we use the [AdaFit](https://github.com/Runsong123/AdaFit) to calculate the unoriented normals to boost the performance on mentioned datasets in our paper. If you want to test your data, you could generate the normals using [AdaFit](https://github.com/Runsong123/AdaFit) or other methods (e.g., PCA). 
 
-###  Start fitting for given point cloud input
+###  Start fitting for given point clouds input
 ```
 cd code/reconstruction
 python SSP.py --dataset thingi  --shape 120477 --nepoch 10000 --outdir thingi10K_exps # example

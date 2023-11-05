@@ -30,10 +30,12 @@ python generate_abc_adapative_add_outside_depth.py
 python generate_pcp_adaptive_add_outside_depth.py
 python generate_SRB_adaptive_add_outside_depth.py
 ```
-We also provide the processed data. [Link](https://runsong123.github.io/SSP/) and you can just place it in ```./data/```.
+We also provide the processed data ([Here](https://runsong123.github.io/SSP/)). You can download it and then place it in ```./data/```. Note that, we use the [AdaFit](https://github.com/Runsong123/AdaFit) to calculate the unoriented normals to boost the performance on mentioned datasets in our paper. If you want to test your data, you could generate the normals using [AdaFit](https://github.com/Runsong123/AdaFit) or other methods (e.g., PCA). 
+
 ###  Start fitting for given point cloud input
 ```
-python code/reconstruction/SSP.py --dataset thingi  --shape 120477 --nepoch 10000 --outdir thingi10K_exps # example
+cd code/reconstruction
+python SSP.py --dataset thingi  --shape 120477 --nepoch 10000 --outdir thingi10K_exps # example
 ```
 
 ## Acknowledgements

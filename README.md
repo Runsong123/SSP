@@ -42,11 +42,11 @@ This project is built upon [IGR](https://github.com/amosgropp/IGR) and [SAP](htt
 ## Citation
 If you find our work useful in your research, please cite our paper. 
 ```
-@article{zhu2021adafit,
-  title={AdaFit: Rethinking Learning-based Normal Estimation on Point Clouds},
-  author={Zhu, Runsong and Liu, Yuan and Dong, Zhen and Jiang, Tengping and Wang, Yuan and Wang, Wenping and Yang, Bisheng},
-  journal={arXiv preprint arXiv:2108.05836},
-  year={2021}
+@article{zhu2022semi,
+  title={Semi-signed neural fitting for surface reconstruction from unoriented point clouds},
+  author={Zhu, Runsong and Kang, Di and Hui, Ka-Hei and Qian, Yue and Zhe, Xuefei and Dong, Zhen and Bao, Linchao and Fu, Chi-Wing},
+  journal={arXiv preprint arXiv:2206.06715},
+  year={2022}
 }
 ```
 

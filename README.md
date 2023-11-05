@@ -5,9 +5,9 @@
 Under construction ... -->
 
 
-# SSP: Semi-signed prioritized neural fitting for surface reconstruction\\ from unoriented point clouds (WACV2024 )
+# SSP: Semi-signed prioritized neural fitting for surface reconstruction from unoriented point clouds (WACV2024 )
 
-**[Project Page](https://runsong123.github.io/AdaFit/) | [Arxiv](https://arxiv.org/abs/2108.05836) |  [Video](https://youtu.be/IEjB_ea7-KE) | [Poster](https://runsong123.github.io/AdaFit/media/AdaFit_poster.pdf) |**
+**[Project Page](https://runsong123.github.io/SSP/) | [Arxiv](https://arxiv.org/abs/2206.06715) |  [Poster](coming soon) |**
 
 Runsong Zhu¹, Di Kang², Ka-Hei Hui¹, Yue Qian², Shi Qiu¹, Zhen Dong³, Linchao Bao², Pheng-Ann Heng¹, Chi-Wing Fu¹.
 

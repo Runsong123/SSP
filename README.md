@@ -43,7 +43,7 @@ python SSP.py --dataset thingi  --shape 120477 --nepoch 10000 --outdir thingi10K
 ```
 
 ## Acknowledgements
-This project is built upon [IGR](https://github.com/amosgropp/IGR) and [SAP](https://github.com/autonomousvision/shape_as_points.git) codebases. We thank the authors for releasing their code.
+Some code snippets are borrowed from [IGR](https://github.com/amosgropp/IGR) and [SAP](https://github.com/autonomousvision/shape_as_points.git) codebases. We thank the authors for releasing their code.
 
 ## Citation
 If you find our work useful in your research, please cite our paper. 

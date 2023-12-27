@@ -1,0 +1,465 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description"
+        content="SSP: Semi-signed prioritized neural fitting for surface reconstruction from unoriented point clouds">
+    <meta name="keywords" content="SSP">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ObjectSDF++</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+    <link rel="stylesheet" href="./css/bulma.min.css">
+    <link rel="stylesheet" href="./css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="./css/bulma-slider.min.css">
+    <link rel="stylesheet" href="./css/fontawesome.all.min.css">
+    <link rel="stylesheet" href="./academicons.min.css">
+    <link rel="stylesheet" href="./css/index.css">
+
+    <script src="./js/jquery.min.js"></script>
+    <script defer src="./js/fontawesome.all.min.js"></script>
+    <script src="./js/bulma-carousel.min.js"></script>
+    <script src="./js/bulma-slider.min.js"></script>
+    <script src="./js/index.js"></script>
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.3.0/model-viewer.min.js"></script>
+    <style>
+        .grid-container {
+            display: grid;
+            grid-template-columns: auto auto auto auto auto auto auto auto;
+            gap: 10px;
+            padding: 0;
+        }
+
+        .grid-container>div {
+            text-align: center;
+            padding: 0;
+            font-size: 30px;
+        }
+
+        .obj1 {
+            grid-column: 1 / 3;
+        }
+
+        .obj2 {
+            grid-column: 3 / 5;
+        }
+
+        .obj3 {
+            grid-column: 5 / 7;
+        }
+
+        .obj4 {
+            grid-column: 7 / 9;
+        }
+
+        .content h4 {
+            font-size: 16px;
+            !important;
+            padding: 0;
+            margin: 0;
+            !important;
+        }
+
+        hr {
+            background-color: lightgray;
+            !important;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+        <div class="navbar-menu">
+            <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+                <a class="navbar-item" href="">
+                    <span class="icon">
+                        <i class="fas fa-home"></i>
+                    </span>
+                </a>
+
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link">
+                        More Research
+                    </a>
+                    <div class="navbar-dropdown">
+                        <a class="navbar-item" href="https://runsong123.github.io/AdaFit/">
+                            AdaFit - ICCV 2021
+                        </a>
+                        <!-- <a class="navbar-item" href="https://github.com/QianyiWu/Awesome-Object-Compositional-INR">
+                            Awesome Object-compositional Collection
+                        </a> -->
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </nav>
+
+
+    <section class="hero">
+        <div class="hero-body">
+            <div class="container is-max-desktop">
+                <!-- <div class="columns is-centered">
+        <div class="column is-7 has-text-centered">
+          <img src="media/nice-slam/nice-slam-logo2.png" alt="NICE-SLAM"/>
+        </div>
+      </div> -->
+                <div class="column has-text-centered">
+                    <!-- <h1 class="title is-1 publication-title">SSP</h1> -->
+                    <h1 class="title is-2 publication-title">Semi-signed prioritized neural fitting for surface
+                        reconstruction from unoriented point clouds</h1>
+                    <div class="column is-full_width">
+                        <h2 class="title is-4">WACV 2024</h2>
+                    </div>
+                    <!-- <br> -->
+                    <!-- Runsong Zhu¹, Di Kang², Ka-Hei Hui¹, Yue Qian², Shi Qiu¹, Zhen Dong³, Linchao Bao², Pheng-Ann Heng¹, Chi-Wing Fu¹. -->
+                    <div class="is-size-5 publication-authors">
+                        <span class="author-block">
+                            <a href="https://rszhu.github.io">Runsong Zhu
+                            </a><sup>1,2</sup></span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <span class="author-block">
+                            <a href="https://scholar.google.com.hk/citations?user=2ztThPwAAAAJ&hl=zh-CN">Ka Di
+                            </a><sup>2</sup></span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <span class="author-block">
+                            <a href="https://appsrv.cse.cuhk.edu.hk/~khhui/">Ka-Hei Hui
+                            </a><sup>1</sup>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </span>
+                        <span class="author-block">
+                            <a href="https://openreview.net/profile?id=~Yue_Qian1">Yue Qian
+                            </a><sup>2</sup>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </span>
+                        <span class="author-block">
+                            <a href="https://scholar.google.com.au/citations?user=OPNVthUAAAAJ&hl=zh-CN">Shi Qiu
+                            </a><sup>2</sup>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </span>
+                        <span class="author-block">
+                            <a href="https://scholar.google.com.hk/citations?user=DZsF2oIAAAAJ&hl=zh-CN">Zhen Dong
+                            </a><sup>3</sup>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </span>
+                        <span class="author-block">
+                            <a href="https://scholar.google.com/citations?user=xQZMbkUAAAAJ&hl=en">Linchao Bao
+                            </a><sup>2</sup>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </span>
+                        <span class="author-block">
+                            <a href="https://scholar.google.com/citations?user=OFdytjoAAAAJ&hl=zh-CN">Pheng-Ann Heng
+                            </a><sup>1</sup>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </span>
+                        <span class="author-block">
+                            <a href="https://scholar.google.com/citations?user=e5AJDrEAAAAJ&hl=ja">Chi-Wing Fu
+                            </a><sup>1</sup>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </span>
+                    </div>
+
+                    <div class="is-size-5 publication-authors">
+                        <span class="author-block"><sup>1</sup>The Chinese University of Hong Kong</span>&nbsp;&nbsp;
+                        <span class="author-block"><sup>2</sup>Tencent AI Lab</span>&nbsp;&nbsp;<br>
+                        <span class="author-block"><sup>3</sup>Wuhan University</span>&nbsp;&nbsp;
+                    </div>
+
+                    <div class="column has-text-centered">
+                        <div class="publication-links">
+                            <!-- PDF Link. -->
+                            <!-- <span class="link-block">
+                <a href="https://arxiv.org/abs/2106.03452"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span> -->
+                            <span class="link-block">
+                                <a href="https://arxiv.org/abs/2206.06715" target="_blank"
+                                    class="external-link button is-normal is-rounded is-dark">
+                                    <!-- <a href="https://arxiv.org/abs/2112.12130" target="_blank"
+                   class="button is-normal is-rounded is-dark"> -->
+                                    <span class="icon">
+                                        <i class="fas fa-file-pdf"></i>
+                                    </span>
+                                    <span>Paper</span>
+                                </a>
+                            </span>
+                            <!-- Video Link. -->
+                            <span class="link-block">
+                                <a href="" class="external-link button is-normal is-rounded is-dark">
+                                    <span class="icon">
+                                        <i class="fab fa-youtube"></i>
+                                    </span>
+                                    <span>Video</span>
+                                </a>
+                            </span>
+                            <!-- Code Link. -->
+                            <span class="link-block">
+                                <a href="https://github.com/Runsong123/SSP" target="_blank"
+                                    class="external-link button is-normal is-rounded is-dark">
+                                    <span class="icon">
+                                        <i class="fab fa-github"></i>
+                                    </span>
+                                    <span>Code</span>
+                                </a>
+                            </span>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- <section class="hero teaser">
+        <div class="container is-max-desktop">
+            <div class="hero-body">
+                <video id="teaser" autoplay muted loop height="100%">
+                    <source src="./teaser_low.mp4" type="video/mp4">
+                </video>
+                <img class="rounded" src="./objectsdf/teaser.png" > -->
+    <!-- <br><br><br>
+    <h2 class="subtitle has-text-centered">
+        <strong>ObjectSDF++</strong> produces accurate <u>scene geometry and objects geometry</u> in an
+        unified framework, under the supervision of multiview images with instance mask.
+    </h2> -->
+    <!-- <h2 class="subtitle has-text-centered">
+      (The <span style="color:#000000;">black</span> / <span style="color:#ff0000;">red</span> lines are the ground truth / predicted camera trajectory)
+    </h2> -->
+    <!-- <h2 class="is-size-6 has-text-centered">(The <span style="color:#000000;">black</span> / <span style="color:#ff0000;">red</span> lines are the ground truth / predicted camera trajectory)</h2> -->
+
+    </div>
+    </div>
+    </section>
+
+    <section class="section">
+        <div class="container is-max-desktop">
+            <!-- Paper video. -->
+            <!-- <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                    <h2 class="title is-3">Video</h2>
+                    <div class="publication-video">
+                        <iframe src="https://www.youtube.com/embed/aR7TAW-tLkE?rel=0&amp;showinfo=0" frameborder="0"
+                            allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div> -->
+            <!--/ Paper video. -->
+
+            <!-- <br> -->
+            <!-- Abstract. -->
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                    <h2 class="title is-3">Abstract</h2>
+                    <div class="content has-text-justified">
+                        <img src="./Pipeline.png" alt="">
+                        <p>
+                            <b>TL;DR: To stably reconstruct the accurate surface from unoriented point clouds, we
+                                propose to utilize the apparently signed supervision. </b>
+                        </p>
+
+                        <p>
+                            Reconstructing 3D geometry from unoriented point clouds can benefit many downstream
+                            tasks.
+                            Recent shape modeling methods mostly adopt implicit neural representation to fit a signed
+                            distance field (SDF) and optimize the network by unsigned supervision.
+                            However, these methods occasionally have difficulty in finding the coarse shape for
+                            complicated objects, especially suffering from the ``ghost'' surfaces (\ie, fake surfaces
+                            that should not exist).
+                            To guide the network quickly fit the coarse shape, we propose to utilize the signed
+                            supervision in regions that are obviously outside the object and can be easily determined,
+                            resulting in our semi-signed supervision.
+                            To better recover high-fidelity details, a novel loss-based region sampling strategy and a
+                            progressive positional encoding (PE) method are applied to prioritize the optimization
+                            towards underfitting and complicated regions.
+                            Specifically, we voxelize and partition the object space into sign-known and
+                            sign-uncertain regions, in which different supervisions are applied.
+                            Besides, we adaptively adjust the sampling rate of each voxel according to the tracked
+                            reconstruction loss, so that the network can focus more on the complicated under-fitting
+                            regions.
+                            We conduct extensive experiments to demonstrate that our method achieves state-of-the-art
+                            performance compared to the existing fitting-based methods and comparable performance to
+                            learning-based methods on multiple datasets.
+
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="Result">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                    <h2 class="title is-3">Results Gallery</h2>
+                </div>
+            </div>
+            <br>
+
+            <h3 class="title is-4">Replica Dataset</h3>
+            <p class="caption selection" style="grid-column-start: 1; grid-column-end: 3;">
+                Object reconstruction results of scene
+                <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
+            <div class="columns is-centered">
+                <!-- Wheel -->
+                <div class="column">
+                    <div class="content" center>
+                        <h2 class="title is-6 has-text-centered">Reference image</h2>
+                    </div>
+                </div>
+
+                <!-- Wheel -->
+                <div class="column">
+                    <div class="content" center>
+                        <h2 class="title is-6 has-text-centered">vMAP (RGB-D)</h2>
+                    </div>
+                </div>
+
+                <!-- Wheel -->
+                <div class="column">
+                    <div class="content" center>
+                        <h2 class="title is-6 has-text-centered">ObjectSDF (RGB)</h2>
+                    </div>
+                </div>
+
+                <div class="column">
+                    <div class="content" center>
+                        <h2 class="title is-6 has-text-centered">ObjectSDF++ (RGB)</h2>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="full_label office0">
+                <div class="grid-container">
+                    <!-- <div class="obj1">
+                        <img src="./meshes/objsdf/office0/blackboard.png" height="120" width="200">
+                    </div> -->
+                    <div class="obj2">
+                        <model-viewer style="height: 120px; width: 200px;" orientation="0deg -90deg 45deg" alt="scene"
+                            src="https://github.com/Runsong123/SSP/blob/main/media/output.glb" camera-controls
+                            auto-rotate exposure=".5" generate-schema>
+                        </model-viewer>
+                    </div>
+                    <div class="obj3">
+                        <model-viewer style="height: 120px; width: 200px;" orientation="0deg -90deg 45deg" alt="scene"
+                            src="https://github.com/Runsong123/SSP/blob/main/media/output.glb" camera-controls
+                            auto-rotate exposure=".5" generate-schema>
+                        </model-viewer>
+                    </div>
+                    <div class="obj4">
+                        <model-viewer style="height: 120px; width: 200px;" orientation="0deg -90deg 45deg" alt="scene"
+                            src="https://github.com/Runsong123/SSP/blob/main/media/output.glb" camera-controls
+                            auto-rotate exposure=".5" generate-schema>
+                        </model-viewer>
+                    </div>
+
+                </div>
+            </div>
+
+            <br>
+
+            <h4 class="title is-4">Thingi10k Dataset</h4>
+            <!-- <p class="caption selection" style="grid-column-start: 1; grid-column-end: 3;"> -->
+            <!--       Visualization scene reconstruction of
+  <select id="full_label-selector" class="partial_label-selector" style="padding: 2px; background:#f0f0f0; border:none; font-family: &#39;Noto Sans&#39;, sans-serif; font-size:16px;">
+                <option value="room0" selected="">Room0</option>
+                <option value="room2">Room2</option>
+   </select>
+        and object reconstruction results
+      </p> -->
+            <!--       <p> Visualization scene reconstruction of
+    <select id="full_label-selector" class="partial_label-selector" style="padding: 2px; background:#f0f0f0; border:none; font-family: 'Noto Sans', sans-serif; font-size:16px;" >
+                <option value="room0" selected>room0</option>
+                <option value="room2">room2</option>
+                <option value="office2">office2</option>
+   </select>
+          and object reconstruction results
+      </p> -->
+
+            <!--todo slider-->
+
+
+            <!-- <div class="partial_label_3D scan0580" style="display:none">
+                <div class="juxtapose" data-startingposition="50%" data-showlabels="true" data-startingposition="50%"
+                    data-showlabels="true" data-animate="true" style="margin: 0 auto; height: 544px; width: 960px;">
+                    <img src="./media/scannet/grid/0580_mono.png" data-label="MonoSDF" width="200" />
+                    <img src="./media/scannet/grid/0580_objpp.png" data-label="ObjectSDF++" width="200" />
+                </div>
+            </div> -->
+
+
+
+            <div class="partial_label_3D scan0616">
+                <div class="juxtapose" data-startingposition="50%" data-showlabels="true" data-startingposition="50%"
+                    data-showlabels="true" data-animate="true" style="margin: 0 auto; height: 544px; width: 960px;">
+                    <!-- <img src="./SAL.png" data-label="SAL" width="200" /> -->
+                    <img src="./DiGS.png" data-label="DiGS" width="200" />
+                    <img src="./Ours.png" data-label="Ours" width="200" />
+                </div>
+            </div>
+
+            <script src="https://cdn.knightlab.com/libs/juxtapose/latest/js/juxtapose.min.js"></script>
+            <link rel="stylesheet" href="https://cdn.knightlab.com/libs/juxtapose/latest/css/juxtapose.css">
+            <script src="./js/vis.js"></script>
+
+
+    </section>
+
+
+    <section class="section" id="BibTeX">
+        <div class="container is-max-desktop content">
+            <h2 class="title">BibTeX</h2>
+            <pre><code>@article{zhu2022semi,
+        author    = {Zhu, Runsong and Kang, Di and Hui, Ka-Hei and Qian, Yue and Zhe, Xuefei and Dong, Zhen and Bao, Linchao and Fu, Chi-Wing},
+        title     = {Semi-signed neural fitting for surface reconstruction from unoriented point clouds},
+        booktitle = {arXiv preprint arXiv:2206.06715},
+        year      = {2022}
+    }</code></pre>
+        </div>
+    </section>
+
+
+
+
+
+
+
+    <footer class="footer">
+        <div class="container">
+            <div class="content has-text-centered">
+            </div>
+            <div class="columns is-centered">
+                <div class="column is-8">
+                    <div class="content">
+                        <p>
+                            This website is licensed under a <a rel="license"
+                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+                                Commons Attribution-ShareAlike 4.0 International License</a>.
+                            This webpage originated from <a
+                                href="https://github.com/nerfies/nerfies.github.io">Nerfies</a> and was further inspired
+                            by <a href="https://pengsongyou.github.io/nice-slam">NICE-SLAM</a>, <a
+                                href="https://kxhit.github.io/vMAP">vMap</a> and <a
+                                href="https://github.com/QianyiWu/objectsdf_plus">Objectsdf_plus</a>
+                            We sincerely thank <a href="https://keunhong.com/">Keunhong Park</a> for developing and
+                            open-sourcing this template.
+                        </p>
+                    </div>
+                </div>
+                </p>
+            </div>
+        </div>
+        </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

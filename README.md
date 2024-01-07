@@ -8,7 +8,9 @@ Under construction ... -->
 
 **[Page](https://runsong123.github.io/SSP/)**, **[Paper](https://openaccess.thecvf.com/content/WACV2024/papers/Zhu_SSP_Semi-Signed_Prioritized_Neural_Fitting_for_Surface_Reconstruction_From_Unoriented_WACV_2024_paper.pdf)**, **[Poster](https://runsong123.github.io/SSP/media/wacv24-2527.pdf)**
 
-Runsong Zhu¹, Di Kang², Ka-Hei Hui¹, Yue Qian², Shi Qiu¹, Zhen Dong³, Linchao Bao², Pheng-Ann Heng¹, Chi-Wing Fu¹.
+Runsong Zhu¹*, Di Kang², Ka-Hei Hui¹, Yue Qian², Shi Qiu¹, Zhen Dong³, Linchao Bao², Pheng-Ann Heng¹, Chi-Wing Fu¹.
+
+(*Work partially done during an internship at Tencent AI Lab)
 
 ¹The Chinese University of Hong Kong + ²Tencent AI Lab + ³Wuhan University.
 

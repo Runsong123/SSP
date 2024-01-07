@@ -48,11 +48,12 @@ Some code snippets are borrowed from [IGR](https://github.com/amosgropp/IGR) and
 ## Citation
 If you find our work useful in your research, please cite our paper. 
 ```
-@article{zhu2022semi,
-  title={Semi-signed neural fitting for surface reconstruction from unoriented point clouds},
-  author={Zhu, Runsong and Kang, Di and Hui, Ka-Hei and Qian, Yue and Zhe, Xuefei and Dong, Zhen and Bao, Linchao and Fu, Chi-Wing},
-  journal={arXiv preprint arXiv:2206.06715},
-  year={2022}
+@inproceedings{zhu2024ssp,
+  title={SSP: Semi-Signed Prioritized Neural Fitting for Surface Reconstruction From Unoriented Point Clouds},
+  author={Zhu, Runsong and Kang, Di and Hui, Ka-Hei and Qian, Yue and Qiu, Shi and Dong, Zhen and Bao, Linchao and Heng, Pheng-Ann and Fu, Chi-Wing},
+  booktitle={Proceedings of the IEEE/CVF Winter Conference on Applications of Computer Vision},
+  pages={3769--3778},
+  year={2024}
 }
 ```
 
